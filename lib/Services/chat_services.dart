@@ -77,6 +77,7 @@ class ChatServices {
 
   Stream<QuerySnapshot<Map<String, dynamic>>>
       getAllcontactsAlreadyStartChatting() {
+        // Alreday have Chat rooms
     return _store
         .collection("ChatRoom").where("Users",arrayContains: _auth.currentUser!.uid).orderBy("ts",descending: true).snapshots();
   }
